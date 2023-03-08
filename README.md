@@ -1,5 +1,5 @@
 # hi_chef.sh
-Web-API for [Hi-chef](https://vk.com/hichefapp) to get more than 10000+ recipes of food
+Web-API for [Hi-chef](https://vk.com/hichefapp) an vk service to get more than 10000+ recipes of food
 
 ## Example
 ```bash
