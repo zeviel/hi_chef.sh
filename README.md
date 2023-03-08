@@ -1,2 +1,8 @@
 # hi_chef.sh
-Web-API for Hi-chef to get more than 10000+ recipes of food
+Web-API for [Hi-chef](https://vk.com/hichefapp) to get more than 10000+ recipes of food
+
+## Example
+```bash
+source hi_chef.sh
+authenticate "sign" "vk_user_id" "vk_ts" "vk_ref"
+```
