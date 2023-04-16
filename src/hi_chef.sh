@@ -5,6 +5,7 @@ sign=null
 vk_user_id=null
 vk_ts=null
 vk_ref=null
+user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 
 function authenticate() {
 	# 1 - sign: (string): <sign>
@@ -27,7 +28,7 @@ function authenticate() {
 function get_feed() {
 	curl --request GET \
 		--url "$api/?platform=vk" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -35,7 +36,7 @@ function get_feed() {
 function get_articles() {
 	curl --request GET \
 		--url "$api/article/?platform=vk" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -43,7 +44,7 @@ function get_articles() {
 function get_profile() {
 	curl --request GET \
 		--url "$api/profile/?platform=vk" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -51,7 +52,7 @@ function get_profile() {
 function get_bookmarks() {
 	curl --request GET \
 		--url "$api/love/?platform=vk" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -61,7 +62,7 @@ function get_recipes() {
 	# 2 - category: (string): <category>
 	curl --request GET \
 		--url "$api/api/recipes/?order=${1:-rating}&category=$2" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -69,7 +70,7 @@ function get_recipes() {
 function get_manifest() {
 	curl --request GET \
 		--url "$api/manifest.json" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -78,7 +79,7 @@ function search_prediction() {
 	# 1 - query: (string): <query>
 	curl --request GET \
 		--url "$api/api/search/prediction/?q=$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -87,7 +88,7 @@ function search() {
 	# 1 - query: (string): <query>
 	curl --request GET \
 		--url "$api/search/?q=$1&platform=vk" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -96,7 +97,7 @@ function get_recipe_info() {
 	# 1 - recipe_name: (string): <recipe_name>
 	curl --request GET \
 		--url "$api/recipe/$1/?platform=vk" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -105,7 +106,7 @@ function get_recipe_metro_cart() {
 	# 1 - recipe_id: (integer): <recipe_id>
 	curl --request GET \
 		--url "$api/api/recipes/$1/metro_cart/" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
@@ -115,7 +116,7 @@ function bookmark_recipe() {
 	# 1 - recipe_id: (integer): <recipe_id>
 	curl --request POST \
 		--url "$api/api/bookmarks/$1/" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "referer: https://hi-chef.ru/?$params"
 }
